@@ -1,9 +1,15 @@
-use person::Person;
+use customer::customer::CustomerService;
 
-mod person;
+mod customer;
 
-fn main() {
-    let person = Person::from_stdin();
+#[tokio::main]
+async fn main() {
+    let mut customerService = CustomerService::new().await;
 
-    println!("{}", person);
+    let mut customer = customerService.create_customer().await;
+    customer.update_balance(10.54f64);
+    println!("{}", customer);
+    customer.update_balance(50f64);
+    println!("{}", customer);
+    customerService.save_customer(customer).await;
 }

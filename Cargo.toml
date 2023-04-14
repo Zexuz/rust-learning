@@ -7,3 +7,16 @@ edition = "2021"
 
 [dependencies]
 ferris-says = "0.3.1"
+tokio = { version = "1", features = ["full"] }
+mongodb = "2.4.0"
+futures = "0.3.28"
+serde = "1.0.160"
+
+[dependencies.uuid]
+version = "1.3.0"
+features = [
+    "serde", # Enable serde support
+    "v4", # Lets you generate random UUIDs
+    "fast-rng", # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+]
