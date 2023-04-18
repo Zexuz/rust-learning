@@ -1,1 +1,1 @@
-docker run --name some-mongo -d mongo:latest
+docker run --name mongo -p 27017:27017 -d mongo:latest
